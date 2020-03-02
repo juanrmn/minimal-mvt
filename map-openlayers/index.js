@@ -14,7 +14,7 @@ var vtLayer = new VectorTileLayer({
   declutter: false,
   source: new VectorTileSource({
     format: new MVT(),
-    url: 'http://localhost:8080/{z}/{x}/{y}.pbf'
+    url: 'http://localhost:8081/{z}/{x}/{y}.pbf'
   }),
   style: new Style({
       stroke: new Stroke({
@@ -49,7 +49,7 @@ const map = new Map({
   ],
   view: new View({
     center: [-8235139, 4968614],
-    zoom: 14
+    zoom: 13
   })
 });
 

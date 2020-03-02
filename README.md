@@ -3,7 +3,7 @@
 The tile server requires a database connection, so set up a virtual environment and then install the `psycopg2` driver using `pip`.
 
     cd minimal-mvt
-    virtualenv --python python3 venv
+    virtualenv --python python3.7 venv
     source venv/bin/activate
     pip install -r requirements.txt
 
@@ -16,7 +16,7 @@ Edit `minimal-mvt.py` and the `TABLE` and `DATABASE` constants:
         'srid':'26918',
         'geomColumn':'geom',
         'attrColumns':'gid, name, type'
-        }  
+        }
 
     DATABASE = {
         'user':'pramsey',
@@ -26,6 +26,6 @@ Edit `minimal-mvt.py` and the `TABLE` and `DATABASE` constants:
         'database':'nyc'
         }
 
-# Run 
+# Run
 
     python3 minimal-mvt.py
