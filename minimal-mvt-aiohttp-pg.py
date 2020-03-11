@@ -5,7 +5,8 @@ from aiohttp import web
 import aiohttp_cors
 import asyncpg
 import logging
-# TODO: logging...
+
+logging.basicConfig(level=logging.INFO)
 
 # Database to connect to
 DATABASE = {
@@ -70,5 +71,5 @@ signal.signal(signal.SIGTERM, main_exit_handler)
 
 app = asyncio.run(create_app())
 
-# ------ TODO: Run script with:
-# gunicorn minimal-mvt-aiohttp:app -b localhost:8081 -w 1 --worker-class aiohttp.GunicornUVLoopWebWorker
+# Run script with:
+# gunicorn minimal-mvt-aiohttp-pg:app -b localhost:8081 -w 1 --worker-class aiohttp.GunicornUVLoopWebWorker
