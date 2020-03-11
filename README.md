@@ -1,31 +1,36 @@
-# Python Setup
 
-The tile server requires a database connection, so set up a virtual environment and then install the `psycopg2` driver using `pip`.
+# Client setup
 
-    cd minimal-mvt
-    virtualenv --python python3.7 venv
-    source venv/bin/activate
-    pip install -r requirements.txt
+```
+cd map-openlayers/
+npm install
+```
 
-# Configuration
+# Server Setup
 
-Edit `minimal-mvt.py` and the `TABLE` and `DATABASE` constants:
+```
+cd minimal-mvt
+virtualenv --python python3.7 venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
 
-    TABLE = {
-        'table':'nyc_streets',
-        'srid':'26918',
-        'geomColumn':'geom',
-        'attrColumns':'gid, name, type'
-        }
+The tile server requires one of these options:
 
-    DATABASE = {
-        'user':'pramsey',
-        'password':'password',
-        'host':'localhost',
-        'port':'5432',
-        'database':'nyc'
-        }
+- Aa database connection (postgres) for `minimal-mvt.py` or `minimal-mvt-aiohttp-pg.py` server versions.
+
+- mbtiles file for `minimal-mvt-aiohttp-mbtiles.py` server.
+
+# Configuration of the original `minimal-mvt.py` server:
+
+You'll find the config settings at the beggining of the script.
 
 # Run
 
-    python3 minimal-mvt.py
+#### Client:
+
+`./run_client.sh`
+
+#### Server (only for aiohttp versions):
+
+`./run_server.sh [pg|mbtiles]`
